@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import Map from '@/components/Map';
+import Filters from '@/components/Filters';
 
 export default function HomeScreen() {
   return (
@@ -8,6 +9,7 @@ export default function HomeScreen() {
         Home Screen
       </Text>
       <Map />
+      <Filters />
     </View>
   );
 }

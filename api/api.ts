@@ -1,4 +1,4 @@
-import { Color, Spots, Mushroom } from "./types";
+import { Color, Spots, Mushroom } from "../types";
 
 const mushrooms: Mushroom[] = [
   {

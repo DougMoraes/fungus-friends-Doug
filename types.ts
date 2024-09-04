@@ -1,3 +1,8 @@
+import { MushroomsStore } from "./stores/MushroomsStore";
+
+export type AppDispatchType = typeof MushroomsStore.dispatch;
+export type RootStateType = ReturnType<typeof MushroomsStore.getState>;
+
 export enum Color {
   red = "red",
   green = "green",
