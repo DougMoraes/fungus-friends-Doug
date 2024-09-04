@@ -1,17 +1,29 @@
 import Checkbox from 'expo-checkbox';
 import { useState } from 'react';
 import { StyleSheet, Text,View } from 'react-native'
+import { useDispatch } from 'react-redux'
+
+import { filterPoints } from '@/features/mushroomsSlice';
+import { AppDispatchType, Mushroom } from '@/types';
 
 type CheckBoxProps = {
-  label: string;
+  label: string,
+  filterName: keyof Mushroom,
 };
 
-const CheckBox = ({label}: CheckBoxProps) => {
+const CheckBox = ({label, filterName}: CheckBoxProps) => {
   const [isChecked, setIsChecked] = useState(false);
+  const dispatch = useDispatch<AppDispatchType>();
+
+  const handleValueChange = () => {
+    dispatch(filterPoints({filterName, filterValue: label})) :
+
+    setIsChecked(!isChecked);
+  };
 
   return (
     <View style={styles.container}>
-      <Checkbox value={isChecked} onValueChange={() => setIsChecked(!isChecked)}/>
+      <Checkbox value={isChecked} onValueChange={handleValueChange}/>
       <Text style={styles.label}>{label}</Text>
     </View>
   )

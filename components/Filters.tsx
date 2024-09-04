@@ -42,13 +42,13 @@ function Filters() {
         {uniqueColors.length > 0 && <Text style={styles.filterTitle}>Colors:</Text>}
         <View style={styles.filterOptions}>
           {uniqueColors.map((color) => (
-            <CheckBox label={color} />
+            <CheckBox label={color} filterName='color'/>
           ))}
         </View>
         {uniqueSpotsTypes.length > 0 && <Text style={styles.filterTitle}>Spots:</Text>}
         <View style={styles.filterOptions}>
           {uniqueSpotsTypes.map((spotsType) => (
-            <CheckBox label={spotsType} />
+            <CheckBox label={spotsType} filterName='spots'/>
           ))}
         </View>
     </View>
