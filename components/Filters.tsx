@@ -1,8 +1,10 @@
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet,View} from 'react-native';
 import { useDispatch } from 'react-redux'
-import Button from './Button';
-import { AppDispatchType } from '@/types';
+
 import { fetchMushrooms } from '@/features/mushroomsSlice';
+import { AppDispatchType } from '@/types';
+
+import Button from './Button';
 
 function Filters() {
   const dispatch = useDispatch<AppDispatchType>();

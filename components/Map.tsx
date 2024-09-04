@@ -1,7 +1,8 @@
-import { RootStateType } from '@/types';
-import {View, StyleSheet} from 'react-native';
+import {StyleSheet,View} from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { useSelector } from 'react-redux';
+
+import { RootStateType } from '@/types';
 
 function Map() {
   const { points } = useSelector((state: RootStateType) => state.mushrooms);

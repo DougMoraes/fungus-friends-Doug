@@ -1,15 +1,12 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
 import getMushrooms from '@/api/api';
 import { Mushroom } from '@/types';
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export interface MushroomsState {
   points: Mushroom[],
   statusGetMushrooms: 'ready' | 'loading' | 'failed',
 }
-
-const getMushroomsWrapper = async () => {
-  return await getMushrooms();
-};
 
 const initialState: MushroomsState = {
   points: [],

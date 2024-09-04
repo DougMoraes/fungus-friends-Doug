@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
-import Map from '@/components/Map';
+
 import Filters from '@/components/Filters';
+import Map from '@/components/Map';
 
 export default function HomeScreen() {
   return (
