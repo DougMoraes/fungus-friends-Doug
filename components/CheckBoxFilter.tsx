@@ -22,7 +22,7 @@ const CheckBoxFilter = ({label, filterName, value, onValueChange}: CheckBoxProps
 
   return (
     <View style={styles.container}>
-      <Checkbox value={value} onValueChange={handleValueChange}/>
+      <Checkbox value={value} onValueChange={handleValueChange} testID='checkbox'/>
       <Text style={styles.label}>{label}</Text>
     </View>
   )
