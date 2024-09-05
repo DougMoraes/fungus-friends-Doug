@@ -1,8 +1,9 @@
-import {StyleSheet, Text,View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import MapView, { Callout, Marker } from 'react-native-maps';
 import { useSelector } from 'react-redux';
 
 import { RootStateType } from '@/types';
+
 import MushroomDetails from './MushroomDetails';
 
 function Map() {
