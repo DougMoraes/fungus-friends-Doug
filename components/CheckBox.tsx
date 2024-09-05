@@ -16,7 +16,7 @@ const CheckBox = ({label, filterName}: CheckBoxProps) => {
   const dispatch = useDispatch<AppDispatchType>();
 
   const handleValueChange = () => {
-    dispatch(filterPoints({filterName, filterValue: label}));
+    dispatch(filterPoints({name: filterName, value: label}));
 
     setIsChecked(!isChecked);
   };

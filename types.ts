@@ -34,3 +34,8 @@ export interface Mushroom {
   color: Color;
   latlng: [number, number];
 }
+
+export type Filter = {
+  name: keyof Mushroom,
+  value: string,
+};
