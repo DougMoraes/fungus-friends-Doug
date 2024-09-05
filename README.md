@@ -1,6 +1,6 @@
-# Welcome to your Expo app 👋
+# Fungus Friends 🍄
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a simple app that renders markers on a map in order to show locations of mushrooms. You can also check details of the Mushroom by clicking the map.
 
 ## Get started
 
@@ -25,26 +25,13 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## Build With
 
-When you're ready, run:
+<img  alt="Expo" width="30px" src="https://avatars.githubusercontent.com/u/12504344?s=40&v=4" /> [Expo]
 
-```bash
-npm run reset-project
-```
+<img  alt="Redux" width="30px" src="https://avatars.githubusercontent.com/u/13142323?s=40&v=4" /> [Redux]
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+<img  alt="React Native" width="30px" src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png" /> [React Native]
 
-## Learn more
+<img  alt="TypeScript" width="30px" src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" /> [TypeScript]
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
