@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -13,6 +14,9 @@ export type checkboxOptionsType = {
 };
 
 function Filters() {
+  const [isColorFilterChecked, setIsColorFilterChecked] = useState(false);
+  const [isSpotsFilterChecked, setIsSpotsFilterChecked] = useState(false);
+
   const dispatch = useDispatch<AppDispatchType>();
   const { points } = useSelector((state: RootStateType) => state.mushrooms);
   const {uniqueColors, uniqueSpotsTypes} = points.reduce(
@@ -39,6 +43,8 @@ function Filters() {
   const onPressResetFilters = async () => {
     try {
       await dispatch(resetMushrooms());
+      setIsColorFilterChecked(false);
+      setIsSpotsFilterChecked(false);
     } catch (err) {
       console.log(err);
     }
@@ -54,7 +60,7 @@ function Filters() {
 
       <View style={styles.filterOptions}>
         {uniqueColors.map((color) => (
-          <CheckBox key={color} label={color} filterName='color' />
+          <CheckBox key={color} label={color} filterName='color' value={isColorFilterChecked} onValueChange={setIsColorFilterChecked}/>
         ))}
       </View>
 
@@ -62,7 +68,7 @@ function Filters() {
 
       <View style={styles.filterOptions}>
         {uniqueSpotsTypes.map((spotsType) => (
-          <CheckBox key={spotsType} label={spotsType} filterName='spots'/>
+          <CheckBox key={spotsType} label={spotsType} filterName='spots' value={isSpotsFilterChecked} onValueChange={setIsSpotsFilterChecked}/>
         ))}
       </View>
     </View>
