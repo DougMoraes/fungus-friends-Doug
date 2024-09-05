@@ -29,7 +29,6 @@ const addFilter = (state: MushroomsState, filter: Filter) => {
 }
 
 const removeFilter = (state: MushroomsState, filter: Filter) => {
-  console.log('removeFilter', filter);
   const index = state.activeFilters.indexOf(filter);
 
   state.activeFilters.splice(index, 1);
