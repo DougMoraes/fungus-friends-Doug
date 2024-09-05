@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import { useDispatch, useSelector } from 'react-redux'
 
-import { fetchMushrooms } from '@/features/mushroomsSlice';
+import { fetchMushrooms, resetMushrooms } from '@/features/mushroomsSlice';
 import { AppDispatchType, RootStateType } from '@/types';
 
 import Button from './Button';
@@ -17,15 +17,15 @@ function Filters() {
   const { points } = useSelector((state: RootStateType) => state.mushrooms);
   const {uniqueColors, uniqueSpotsTypes} = points.reduce(
     (checkboxOptions, point) => {
-        if (!checkboxOptions.uniqueColors.includes(point.color)) {
-          checkboxOptions.uniqueColors.push(point.color);
-        }
+      if (!checkboxOptions.uniqueColors.includes(point.color)) {
+        checkboxOptions.uniqueColors.push(point.color);
+      }
 
-        if (!checkboxOptions.uniqueSpotsTypes.includes(point.spots)) {
-          checkboxOptions.uniqueSpotsTypes.push(point.spots);
-        }
+      if (!checkboxOptions.uniqueSpotsTypes.includes(point.spots)) {
+        checkboxOptions.uniqueSpotsTypes.push(point.spots);
+      }
 
-        return checkboxOptions;
+      return checkboxOptions;
     }, {uniqueColors: [], uniqueSpotsTypes: []} as checkboxOptionsType);
 
   const onPressFetchMushrooms = async () => {
@@ -36,21 +36,35 @@ function Filters() {
     }
   };
 
+  const onPressResetFilters = async () => {
+    try {
+      await dispatch(resetMushrooms());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Button text='Fetch Mushrooms' onPress={onPressFetchMushrooms}/>
-        {uniqueColors.length > 0 && <Text style={styles.filterTitle}>Colors:</Text>}
-        <View style={styles.filterOptions}>
-          {uniqueColors.map((color) => (
-            <CheckBox key={color} label={color} filterName='color'/>
-          ))}
-        </View>
-        {uniqueSpotsTypes.length > 0 && <Text style={styles.filterTitle}>Spots:</Text>}
-        <View style={styles.filterOptions}>
-          {uniqueSpotsTypes.map((spotsType) => (
-            <CheckBox key={spotsType} label={spotsType} filterName='spots'/>
-          ))}
-        </View>
+
+      {uniqueColors.length > 0 && <Button text='Reset Filters' onPress={onPressResetFilters}/>}
+
+      {uniqueColors.length > 0 && <Text style={styles.filterTitle}>Colors:</Text>}
+
+      <View style={styles.filterOptions}>
+        {uniqueColors.map((color) => (
+          <CheckBox key={color} label={color} filterName='color' />
+        ))}
+      </View>
+
+      {uniqueSpotsTypes.length > 0 && <Text style={styles.filterTitle}>Spots:</Text>}
+
+      <View style={styles.filterOptions}>
+        {uniqueSpotsTypes.map((spotsType) => (
+          <CheckBox key={spotsType} label={spotsType} filterName='spots'/>
+        ))}
+      </View>
     </View>
   )
 }
