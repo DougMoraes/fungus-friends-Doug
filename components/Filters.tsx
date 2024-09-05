@@ -6,7 +6,7 @@ import { fetchMushrooms, resetMushrooms } from '@/features/mushroomsSlice';
 import { AppDispatchType, RootStateType } from '@/types';
 
 import Button from './Button';
-import CheckBox from './CheckBox';
+import CheckBoxFilter from './CheckBoxFilter';
 
 export type checkboxOptionsType = {
   uniqueColors: string[],
@@ -60,7 +60,7 @@ function Filters() {
 
       <View style={styles.filterOptions}>
         {uniqueColors.map((color) => (
-          <CheckBox key={color} label={color} filterName='color' value={isColorFilterChecked} onValueChange={setIsColorFilterChecked}/>
+          <CheckBoxFilter key={color} label={color} filterName='color' value={isColorFilterChecked} onValueChange={setIsColorFilterChecked}/>
         ))}
       </View>
 
@@ -68,7 +68,7 @@ function Filters() {
 
       <View style={styles.filterOptions}>
         {uniqueSpotsTypes.map((spotsType) => (
-          <CheckBox key={spotsType} label={spotsType} filterName='spots' value={isSpotsFilterChecked} onValueChange={setIsSpotsFilterChecked}/>
+          <CheckBoxFilter key={spotsType} label={spotsType} filterName='spots' value={isSpotsFilterChecked} onValueChange={setIsSpotsFilterChecked}/>
         ))}
       </View>
     </View>

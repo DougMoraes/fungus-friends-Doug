@@ -12,7 +12,7 @@ type CheckBoxProps = {
   onValueChange: (value: boolean) => void,
 };
 
-const CheckBox = ({label, filterName, value, onValueChange}: CheckBoxProps) => {
+const CheckBoxFilter = ({label, filterName, value, onValueChange}: CheckBoxProps) => {
   const dispatch = useDispatch<AppDispatchType>();
 
   const handleValueChange = () => {
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CheckBox;
+export default CheckBoxFilter;
