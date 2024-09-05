@@ -29,13 +29,13 @@ const addFilter = (state: MushroomsState, filter: Filter) => {
 }
 
 const removeFilter = (state: MushroomsState, filter: Filter) => {
-  const index = state.activeFilters.indexOf(filter);
+  const index = state.activeFilters.map(activeFilter => activeFilter.value).indexOf(filter.value);
 
   state.activeFilters.splice(index, 1);
-}
+};
 
 const isFilterAlreadyActive = (state: MushroomsState, testedFilter: Filter) => {
-  return state.activeFilters.find((filter) => filter.name === testedFilter.name && filter.value === testedFilter.value)
+  return state.activeFilters.find((filter) => filter.name === testedFilter.name && filter.value === testedFilter.value);
 };
 
 export const mushroomsSlice = createSlice({
