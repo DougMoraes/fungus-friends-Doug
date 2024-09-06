@@ -1,16 +1,9 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import getMushrooms from '@/api/api';
-import { Filter, Mushroom } from '@/types';
+import { Filter, Mushroom, MushroomsStateType } from '@/types';
 
-export interface MushroomsState {
-  points: Mushroom[],
-  initialMushrooms: Mushroom[],
-  activeFilters: Filter[],
-  statusGetMushrooms: 'ready' | 'loading' | 'failed',
-}
-
-const initialState: MushroomsState = {
+const initialState: MushroomsStateType = {
   points: [],
   initialMushrooms: [],
   activeFilters: [],
@@ -24,17 +17,17 @@ export const fetchMushrooms = createAsyncThunk(
   }
 );
 
-const addFilter = (state: MushroomsState, filter: Filter) => {
+const addFilter = (state: MushroomsStateType, filter: Filter) => {
   state.activeFilters.push(filter);
 }
 
-const removeFilter = (state: MushroomsState, filter: Filter) => {
+const removeFilter = (state: MushroomsStateType, filter: Filter) => {
   const index = state.activeFilters.map(activeFilter => activeFilter.value).indexOf(filter.value);
 
   state.activeFilters.splice(index, 1);
 };
 
-const isFilterAlreadyActive = (state: MushroomsState, testedFilter: Filter) => {
+const isFilterAlreadyActive = (state: MushroomsStateType, testedFilter: Filter) => {
   return state.activeFilters.find((filter) => filter.name === testedFilter.name && filter.value === testedFilter.value);
 };
 

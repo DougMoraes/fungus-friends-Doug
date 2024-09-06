@@ -3,15 +3,10 @@ import {StyleSheet, Text, View} from 'react-native';
 import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchMushrooms, resetMushrooms } from '@/features/mushroomsSlice';
-import { AppDispatchType, RootStateType } from '@/types';
+import { AppDispatchType, CheckboxOptionsType, RootStateType } from '@/types';
 
 import Button from './Button';
 import CheckBoxFilter from './CheckBoxFilter';
-
-export type checkboxOptionsType = {
-  uniqueColors: string[],
-  uniqueSpotsTypes: string[],
-};
 
 function Filters() {
   const [isColorFilterChecked, setIsColorFilterChecked] = useState(false);
@@ -30,7 +25,7 @@ function Filters() {
       }
 
       return checkboxOptions;
-    }, {uniqueColors: [], uniqueSpotsTypes: []} as checkboxOptionsType);
+    }, {uniqueColors: [], uniqueSpotsTypes: []} as CheckboxOptionsType);
 
   const onPressFetchMushrooms = async () => {
     try {

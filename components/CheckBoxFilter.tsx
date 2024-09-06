@@ -5,14 +5,14 @@ import { useDispatch } from 'react-redux'
 import { filterPoints } from '@/features/mushroomsSlice';
 import { AppDispatchType, Mushroom } from '@/types';
 
-type CheckBoxProps = {
+type CheckBoxFilterProps = {
   label: string,
   filterName: keyof Mushroom,
   value: boolean,
   onValueChange: (value: boolean) => void,
 };
 
-const CheckBoxFilter = ({label, filterName, value, onValueChange}: CheckBoxProps) => {
+const CheckBoxFilter = ({label, filterName, value, onValueChange}: CheckBoxFilterProps) => {
   const dispatch = useDispatch<AppDispatchType>();
 
   const handleValueChange = () => {

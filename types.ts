@@ -3,6 +3,11 @@ import { MushroomsStore } from "./stores/MushroomsStore";
 export type AppDispatchType = typeof MushroomsStore.dispatch;
 export type RootStateType = ReturnType<typeof MushroomsStore.getState>;
 
+export type CheckboxOptionsType = {
+  uniqueColors: string[],
+  uniqueSpotsTypes: string[],
+};
+
 export enum Color {
   red = "red",
   green = "green",
@@ -39,3 +44,10 @@ export type Filter = {
   name: keyof Mushroom,
   value: string,
 };
+
+export type MushroomsStateType = {
+  points: Mushroom[],
+  initialMushrooms: Mushroom[],
+  activeFilters: Filter[],
+  statusGetMushrooms: 'ready' | 'loading' | 'failed',
+}
