@@ -15,6 +15,7 @@ function Map() {
         style={styles.map}
         showsUserLocation
         showsMyLocationButton
+        testID='map'
       >
       {points.map((point, index) => (
         <Marker
@@ -24,6 +25,7 @@ function Map() {
             longitude: point.latlng[1]
           }}
           title={point.name}
+          testID='marker'
         >
           <Callout>
             <MushroomDetails mushroom={point}/>
