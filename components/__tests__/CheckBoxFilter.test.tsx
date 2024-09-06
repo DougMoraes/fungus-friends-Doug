@@ -1,10 +1,8 @@
-import { render, screen, userEvent } from '@testing-library/react-native';
-import { Provider } from 'react-redux';
-
-import { MushroomsStore } from '@/stores/MushroomsStore';
+import { screen, userEvent } from '@testing-library/react-native';
 
 import CheckBoxFilter from '../CheckBoxFilter';
-import { getAsRegExp } from './__utils__/utils';
+import { mockEmptyState } from './__utils__/mocks';
+import { getAsRegExp, renderWithProviders } from './__utils__/utils';
 
 beforeEach(() => {
   jest.useFakeTimers();
@@ -24,10 +22,9 @@ describe('CheckBoxFilter Component', () => {
     const testfilterName = 'color';
     const mockOnValueChange = jest.fn();
 
-    render(
-      <Provider store={MushroomsStore}>
-        <CheckBoxFilter label={testLabel} filterName={testfilterName} value={false} onValueChange={mockOnValueChange}/>
-      </Provider>
+    renderWithProviders(
+      <CheckBoxFilter label={testLabel} filterName={testfilterName} value={false} onValueChange={mockOnValueChange}/>,
+      mockEmptyState
     )
 
     const rendered = screen.getAllByText(getAsRegExp(testLabel));

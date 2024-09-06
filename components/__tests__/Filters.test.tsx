@@ -4,27 +4,14 @@ import { Provider } from 'react-redux';
 
 import Filters from '../Filters';
 import { mockEmptyState, mockWithMushroomsState } from './__utils__/mocks';
-import { getAsRegExp } from './__utils__/utils';
+import { getAsRegExp, renderWithProviders } from './__utils__/utils';
 
 describe('Filters Component', () => {
   test('should render Component when points state is an empty array', () => {
 
-    const mockSlice = createSlice({
-      name: 'mock',
-      initialState: mockEmptyState,
-      reducers: {},
-    });
-
-    const mockStore = configureStore({
-      reducer: {
-        mushrooms: mockSlice.reducer,
-      },
-    });
-
-    render(
-      <Provider store={mockStore}>
-        <Filters />
-      </Provider>
+    renderWithProviders(
+      <Filters />,
+      mockEmptyState
     )
 
     const renderedFetchButton = screen.queryAllByText(getAsRegExp("Fetch Mushrooms"));
@@ -40,22 +27,9 @@ describe('Filters Component', () => {
 
   test('should render Component when points state is an array with mushrooms', () => {
 
-    const mockSlice = createSlice({
-      name: 'mock',
-      initialState: mockWithMushroomsState,
-      reducers: {},
-    });
-
-    const mockStore = configureStore({
-      reducer: {
-        mushrooms: mockSlice.reducer,
-      },
-    });
-
-    render(
-      <Provider store={mockStore}>
-        <Filters />
-      </Provider>
+    renderWithProviders(
+      <Filters />,
+      mockWithMushroomsState
     )
 
     const renderedFetchButton = screen.queryAllByText(getAsRegExp("Fetch Mushrooms"));
