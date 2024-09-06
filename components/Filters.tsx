@@ -54,7 +54,7 @@ function Filters() {
     <View style={styles.container}>
       <Button text='Fetch Mushrooms' onPress={onPressFetchMushrooms}/>
 
-      {uniqueColors.length > 0 && <Button text='Reset Filters' onPress={onPressResetFilters}/>}
+      {(uniqueColors.length > 0 || uniqueSpotsTypes.length > 0) && <Button text='Reset Filters' onPress={onPressResetFilters}/>}
 
       {uniqueColors.length > 0 && <Text style={styles.filterTitle}>Colors:</Text>}
 
