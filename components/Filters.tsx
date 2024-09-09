@@ -55,7 +55,7 @@ function Filters() {
 
       <View style={styles.filterOptions}>
         {uniqueColors.map((color) => (
-          <CheckBoxFilter key={color} label={color} filterName='color' value={isColorFilterChecked} onValueChange={setIsColorFilterChecked}/>
+          <CheckBoxFilter key={color} label={color} filterName='color' isChecked={isColorFilterChecked} onValueChange={setIsColorFilterChecked}/>
         ))}
       </View>
 
@@ -63,7 +63,7 @@ function Filters() {
 
       <View style={styles.filterOptions}>
         {uniqueSpotsTypes.map((spotsType) => (
-          <CheckBoxFilter key={spotsType} label={spotsType} filterName='spots' value={isSpotsFilterChecked} onValueChange={setIsSpotsFilterChecked}/>
+          <CheckBoxFilter key={spotsType} label={spotsType} filterName='spots' isChecked={isSpotsFilterChecked} onValueChange={setIsSpotsFilterChecked}/>
         ))}
       </View>
     </View>

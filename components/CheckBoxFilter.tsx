@@ -8,21 +8,21 @@ import { AppDispatchType, Mushroom } from '@/types';
 type CheckBoxFilterProps = {
   label: string,
   filterName: keyof Mushroom,
-  value: boolean,
+  isChecked: boolean,
   onValueChange: (value: boolean) => void,
 };
 
-const CheckBoxFilter = ({label, filterName, value, onValueChange}: CheckBoxFilterProps) => {
+const CheckBoxFilter = ({label, filterName, isChecked, onValueChange}: CheckBoxFilterProps) => {
   const dispatch = useDispatch<AppDispatchType>();
 
   const handleValueChange = () => {
     dispatch(filterPoints({name: filterName, value: label}));
-    onValueChange(!value);
+    onValueChange(!isChecked);
   };
 
   return (
     <View style={styles.container}>
-      <Checkbox value={value} onValueChange={handleValueChange} testID='checkbox'/>
+      <Checkbox value={isChecked} onValueChange={handleValueChange} testID={`checkbox-${label}`}/>
       <Text style={styles.label}>{label}</Text>
     </View>
   )
