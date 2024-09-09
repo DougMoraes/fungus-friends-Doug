@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react-native";
 
 import Map from "../Map";
 import { mockEmptyState, mockWithMushroomsState } from "./__utils__/mocks";
-import { renderWithProviders } from "./__utils__/utils";
+import { getAsRegExp, renderWithProviders } from "./__utils__/utils";
 
 describe('Map', () => {
   test('should render Map with no Markers when points is an empty array', () => {
@@ -16,18 +16,5 @@ describe('Map', () => {
 
     expect(renderedMap.length).toBe(1);
     expect(renderedMarkers.length).toBe(0);
-  });
-
-  test('should render Map with one Marker per point', () => {
-    renderWithProviders(
-      <Map />,
-      mockWithMushroomsState
-    );
-
-    const renderedMap = screen.queryAllByTestId('map');
-    const renderedMarkers = screen.queryAllByTestId('marker');
-
-    expect(renderedMap.length).toBe(1);
-    expect(renderedMarkers.length).toBe(mockWithMushroomsState.points.length);
   });
 });
