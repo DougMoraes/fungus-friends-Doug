@@ -34,7 +34,7 @@ function Map() {
             longitude: point.latlng[1]
           }}
           title={point.name}
-          testID='marker'
+          testID={`marker-${point.name}`}
         >
           <Callout>
             <MushroomDetails mushroom={point}/>
