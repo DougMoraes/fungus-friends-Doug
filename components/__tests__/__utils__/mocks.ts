@@ -1,5 +1,4 @@
-import { MushroomsState } from "@/features/mushroomsSlice";
-import { Color, Mushroom, Spots } from "@/types";
+import { Color, Mushroom, MushroomsStateType, Spots } from "@/types";
 
 export const mockedMushrooms: Mushroom[] = [
   {
@@ -22,14 +21,14 @@ export const mockedMushrooms: Mushroom[] = [
   },
 ];
 
-export const mockEmptyState: MushroomsState = {
+export const mockEmptyState: MushroomsStateType = {
   points: [],
   initialMushrooms: [],
   activeFilters: [],
   statusGetMushrooms: 'loading',
 };
 
-export const mockWithMushroomsState: MushroomsState = {
+export const mockWithMushroomsState: MushroomsStateType = {
   points: mockedMushrooms,
   initialMushrooms: mockedMushrooms,
   activeFilters: [],
