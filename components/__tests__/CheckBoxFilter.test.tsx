@@ -23,7 +23,7 @@ describe('CheckBoxFilter Component', () => {
     const mockOnValueChange = jest.fn();
 
     renderWithProviders(
-      <CheckBoxFilter label={testLabel} filterName={testfilterName} value={false} onValueChange={mockOnValueChange}/>,
+      <CheckBoxFilter label={testLabel} filterName={testfilterName} isChecked={false} onValueChange={mockOnValueChange}/>,
       mockEmptyState
     )
 
@@ -31,7 +31,7 @@ describe('CheckBoxFilter Component', () => {
 
     expect(rendered.length).toBe(1);
 
-    const renderedCheckbox = screen.getByTestId('checkbox');
+    const renderedCheckbox = screen.getByTestId(getAsRegExp('checkbox'));
 
     await user.press(renderedCheckbox);
 
