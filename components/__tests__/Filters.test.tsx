@@ -1,6 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
-import { render, screen } from '@testing-library/react-native';
-import { Provider } from 'react-redux';
+import { screen } from '@testing-library/react-native';
 
 import Filters from '../Filters';
 import { mockEmptyState, mockWithMushroomsState } from './__utils__/mocks';
